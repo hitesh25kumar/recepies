@@ -19,9 +19,15 @@ export default class Home extends Component {
     this.state = {};
   }
 
+  onPressRecipe = item => {
+    this.props.navigation.navigate('Recipes', {item});
+  };
+
   renderRecipes = ({item}) => {
     return (
-      <TouchableHighlight style={styles.card}>
+      <TouchableHighlight
+        style={styles.card}
+        onPress={() => this.onPressRecipe(item)}>
         <View>
           <Image source={{uri: item.photo_url}} style={styles.photo} />
           <Text style={styles.title}>{item.title}</Text>
