@@ -1,2 +1,0 @@
-# recepies
-Recipes app
