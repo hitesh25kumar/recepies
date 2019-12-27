@@ -5,6 +5,7 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Home from './screens/Home';
 import Recipes from './screens/Recipes';
+import IngredientDetails from './screens/IngredientDetails';
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -12,6 +13,9 @@ const AppNavigator = createStackNavigator({
   },
   Recipes: {
     screen: Recipes,
+  },
+  IngredientDetails: {
+    screen: IngredientDetails,
   },
 });
 

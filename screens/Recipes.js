@@ -74,8 +74,24 @@ export default class Recipes extends Component {
             </TouchableHighlight>
           </View>
           <View style={styles.infoContainer}>
-            <Image style={styles.infoPhoto} source={require('../assets/icons/time.png')}/>
+            <Image
+              style={styles.infoPhoto}
+              source={require('../assets/icons/time.png')}
+            />
             <Text style={styles.infoRecipe}>{item.time} minutes </Text>
+          </View>
+          <View style={styles.infoContainer}>
+            <TouchableHighlight
+              underlayColor="rgba(73,182,77,1,0.9)"
+              onPress={() => {
+                let ingredients = item.ingredients;
+                let title = 'Ingredients for ' + item.title;
+                navigation.navigate('IngredientDetails', {ingredients, title});
+              }}>
+              <View style={styles.brnContainer}>
+                <Text style={styles.btntext}>View Ingredients</Text>
+              </View>
+            </TouchableHighlight>
           </View>
           <View style={styles.infoContainer}>
             <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
@@ -146,19 +162,36 @@ const styles = StyleSheet.create({
     margin: 10,
     color: '#2cd18a',
   },
-  infoRecipe:{
-    fontSize:17,
-    fontWeight:'bold',
-    marginLeft:5
+  infoRecipe: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    marginLeft: 5,
   },
-  infoPhoto:{
-    height:20,
-    width:20,
-    marginRight:0
+  infoPhoto: {
+    height: 20,
+    width: 20,
+    marginRight: 0,
   },
-  infoDescriptionRecipe:{
-    fontSize:19,
-    textAlign:'left',
+  infoDescriptionRecipe: {
+    fontSize: 19,
+    textAlign: 'left',
     margin: 25,
-  }
+  },
+  brnContainer: {
+    flex: 1,
+    height: 50,
+    width: 270,
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 100,
+    borderColor: '#2cd18a',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btntext: {
+    fontSize: 16,
+    color: '#2cd18a',
+  },
 });
