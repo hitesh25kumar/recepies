@@ -64,18 +64,21 @@ export default class Recipes extends Component {
             />
           </View>
         </View>
-        <View>
-          <Text>{item.title}</Text>
-          <View>
+        <View style={styles.infoRecipeContainer}>
+          <Text style={styles.infoRecipeName}>{item.title}</Text>
+          <View style={styles.infoContainer}>
             <TouchableHighlight>
-              <Text>{getCategoryName(item.categoryId).toUpperCase()}</Text>
+              <Text style={styles.category}>
+                {getCategoryName(item.categoryId).toUpperCase()}
+              </Text>
             </TouchableHighlight>
           </View>
-          <View>
-            <Text>{item.time} minutes </Text>
+          <View style={styles.infoContainer}>
+            <Image style={styles.infoPhoto} source={require('../assets/icons/time.png')}/>
+            <Text style={styles.infoRecipe}>{item.time} minutes </Text>
           </View>
-          <View>
-            <Text>{item.description}</Text>
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
           </View>
         </View>
       </ScrollView>
@@ -119,4 +122,43 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
     backgroundColor: '#fff',
   },
+  infoRecipeContainer: {
+    flex: 1,
+    margin: 25,
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  infoRecipeName: {
+    fontSize: 28,
+    margin: 10,
+    fontWeight: 'bold',
+  },
+  infoContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  category: {
+    fontSize: 19,
+    fontWeight: 'bold',
+    margin: 10,
+    color: '#2cd18a',
+  },
+  infoRecipe:{
+    fontSize:17,
+    fontWeight:'bold',
+    marginLeft:5
+  },
+  infoPhoto:{
+    height:20,
+    width:20,
+    marginRight:0
+  },
+  infoDescriptionRecipe:{
+    fontSize:19,
+    textAlign:'left',
+    margin: 25,
+  }
 });
