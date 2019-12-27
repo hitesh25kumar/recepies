@@ -9,6 +9,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
+import {getCategoryName} from '../mockapi';
 
 const {width, height} = Dimensions.get('window');
 
@@ -63,6 +64,20 @@ export default class Recipes extends Component {
             />
           </View>
         </View>
+        <View>
+          <Text>{item.title}</Text>
+          <View>
+            <TouchableHighlight>
+              <Text>{getCategoryName(item.categoryId).toUpperCase()}</Text>
+            </TouchableHighlight>
+          </View>
+          <View>
+            <Text>{item.time} minutes </Text>
+          </View>
+          <View>
+            <Text>{item.description}</Text>
+          </View>
+        </View>
       </ScrollView>
     );
   }
@@ -102,6 +117,6 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: 4,
     marginHorizontal: 0,
-    backgroundColor:'#fff'
+    backgroundColor: '#fff',
   },
 });
